@@ -28,10 +28,6 @@
 ---
 
 ## HOW TO RUN?
-
-1. **In WSL terminal, compile with:**  
-   `g++ -std=c++17 -o network_sim main.cpp layers/application.cpp layers/transport.cpp layers/network.cpp layers/link.cpp`
-
-2. **Run the program with:**  
+1. **Run the program with:**  
    `./network_sim`
 
