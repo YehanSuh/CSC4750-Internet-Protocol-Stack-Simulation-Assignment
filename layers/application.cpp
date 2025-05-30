@@ -1,18 +1,21 @@
+/** 
+CSC4750 Computer Networks 
+Internet Protocol Stack Simulation Assignment
+Pf. Dennis Vickers
+05/09/2025
+**/
+
 #include "application.h"
 #include <iostream>
 
-// Add an "APP_HDR|" to simulate application layer encapsulation
-std::string application_send(const std::string& message) {
-    std::cout << "[Application Layer] Sending: " << message << std::endl;
-    return "APP_HDR|" + message;
-}
-
-// Strip the "APP_HDR|" to simulate decapsulation
-std::string application_receive(const std::string& data) {
-    std::cout << "[Application Layer] Received: " << data << std::endl;
-    size_t pos = data.find('|');
-    if (pos != std::string::npos) {
-        return data.substr(pos + 1);
+namespace Application {
+    std::string Send(const std::string& data) {
+        std::cout << "[Application Layer] Sending: " << data << "\n";
+        return "APP_HDR|" + data;
     }
-    return data; // If no delimiter found, return as-is
+
+    std::string Receive(const std::string& data) {
+        std::cout << "[Application Layer] Receiving: " << data << "\n";
+        return data.substr(data.find('|') + 1);
+    }
 }

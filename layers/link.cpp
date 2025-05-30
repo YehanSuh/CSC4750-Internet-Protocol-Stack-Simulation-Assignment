@@ -1,14 +1,21 @@
+/** 
+CSC4750 Computer Networks 
+Internet Protocol Stack Simulation Assignment
+Pf. Dennis Vickers
+05/09/2025
+**/
+
 #include "link.h"
 #include <iostream>
 
-std::string Link::Send(const std::string& data) {
-    std::string framedData = "LINK_HDR|" + data;
-    std::cout << "[Link Layer] Sending: " << framedData << std::endl;
-    return framedData;
-}
+namespace Link {
+    std::string Send(const std::string& data) {
+        std::cout << "[Link Layer] Sending: " << data << "\n";
+        return "LINK_HDR|" + data;
+    }
 
-std::string Link::Receive(const std::string& data) {
-    std::cout << "[Link Layer] Receiving: " << data << std::endl;
-    std::string payload = data.substr(data.find('|') + 1); // Strip LINK_HDR|
-    return payload;
+    std::string Receive(const std::string& data) {
+        std::cout << "[Link Layer] Receiving: " << data << "\n";
+        return data.substr(data.find('|') + 1);
+    }
 }

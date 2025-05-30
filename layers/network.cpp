@@ -1,19 +1,21 @@
-// layers/network.cpp
+/** 
+CSC4750 Computer Networks 
+Internet Protocol Stack Simulation Assignment
+Pf. Dennis Vickers
+05/09/2025
+**/
+
 #include "network.h"
 #include <iostream>
 
 namespace Network {
-    std::string buffer;
-
-    std::string Send(const std::string &data) {
-        buffer = "NET_HDR|" + data;
-        std::cout << "[Network Layer] Sending: " << buffer << std::endl;
-        return buffer;
+    std::string Send(const std::string& data) {
+        std::cout << "[Network Layer] Sending: " << data << "\n";
+        return "NET_HDR|" + data;
     }
 
-    std::string Receive(const std::string &netData) {
-        buffer = netData.substr(netData.find("|") + 1);
-        std::cout << "[Network Layer] Received: " << buffer << std::endl;
-        return buffer;
+    std::string Receive(const std::string& data) {
+        std::cout << "[Network Layer] Receiving: " << data << "\n";
+        return data.substr(data.find('|') + 1);
     }
 }

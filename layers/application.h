@@ -3,10 +3,9 @@
 
 #include <string>
 
-// Encapsulates data with application layer header
-std::string application_send(const std::string& message);
+namespace Application {
+    std::string Send(const std::string& data);
+    std::string Receive(const std::string& data);
+}
 
-// Decapsulates data at the application layer
-std::string application_receive(const std::string& data);
-
-#endif // APPLICATION_H
+#endif
